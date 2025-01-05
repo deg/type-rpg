@@ -5,7 +5,15 @@ import { Monster } from '../types/monster';
 import { describeMonster, fightMonster } from '../logic/monster';
 import { updateCharacter, healCharacter } from '../logic/character';
 
+/**
+ * The main component for creating and managing a character.
+ *
+ * @returns A JSX element representing the character creation interface.
+ */
 const CharacterCreator: React.FC = () => {
+  /**
+   * The state representing the character.
+   */
   const [character, setCharacter] = useState<Character>({
     name: '',
     strength: 10,
@@ -17,17 +25,30 @@ const CharacterCreator: React.FC = () => {
     xp: 0,
   });
 
+  /**
+   * A list of monsters that the character can fight.
+   */
   const monsters: Monster[] = [
     { kind: 'melee', damage: 10, armor: 5 },
     { kind: 'ranged', damage: 8, range: 15 },
   ];
 
+  /**
+   * Updates the character state using a static or dynamic updater.
+   *
+   * @param updater - A partial update object or a function generating updates.
+   */
   const handleStateUpdate = (
     updater: Partial<Character> | ((current: Character) => Partial<Character>)
   ) => {
     setCharacter((prev) => updateCharacter(prev, updater));
   };
 
+  /**
+   * Handles input changes for character attributes.
+   *
+   * @param e - The input change event.
+   */
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     handleStateUpdate(() => ({
@@ -35,10 +56,18 @@ const CharacterCreator: React.FC = () => {
     }));
   };
 
+  /**
+   * Handles fighting a monster and updates the character state accordingly.
+   *
+   * @param monster - The monster to fight.
+   */
   const handleFightMonster = (monster: Monster) => {
     handleStateUpdate((current) => fightMonster(current, monster));
   };
 
+  /**
+   * Heals the character by a fixed amount.
+   */
   const handleHealCharacter = () => {
     handleStateUpdate((current) => healCharacter(current, 15));
   };

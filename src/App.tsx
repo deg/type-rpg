@@ -1,16 +1,17 @@
-import { useState } from 'react'
-import './App.css'
-import CharacterCreator from './components/CharacterCreator'
+import './App.css';
+import CharacterCreator from './components/CharacterCreator';
 
+/**
+ * The main application component.
+ *
+ * @returns The root JSX element of the application.
+ */
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
       <CharacterCreator />
     </div>
-
-  )
+  );
 }
 
-export default App
+export default App;

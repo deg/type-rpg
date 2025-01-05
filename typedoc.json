@@ -1,0 +1,8 @@
+{
+  "entryPointStrategy": "expand",
+  "entryPoints": ["src"],
+  "out": "docs",
+  "includeVersion": true,
+  "excludeExternals": true,
+  "hideGenerator": true
+}
