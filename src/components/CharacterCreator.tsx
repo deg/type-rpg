@@ -1,73 +1,9 @@
 import React, { useState } from 'react';
 
-enum ItemType {
-  Weapon = 'Weapon',
-  Potion = 'Potion',
-  Trophy = 'Trophy',
-}
-
-interface InventoryItem {
-  name: string;
-  type: ItemType;
-}
-
-interface Character {
-  name: string;
-  strength: number;
-  agility: number;
-  health: number;
-  maxHealth: number;
-  inventory: InventoryItem[];
-  level: number;
-  xp: number;
-}
-
-type MeleeMonster = {
-  kind: 'melee';
-  damage: number;
-  armor: number;
-};
-
-type RangedMonster = {
-  kind: 'ranged';
-  damage: number;
-  range: number;
-};
-
-type Monster = MeleeMonster | RangedMonster;
-
-const updateCharacter = (
-  character: Character,
-  updates: Partial<Character>
-): Character => ({
-  ...character,
-  ...updates,
-});
-
-const levelUp = (character: Character): Character => ({
-  ...character,
-  level: character.level + 1,
-  strength: character.strength + 2,
-  agility: character.agility + 2,
-  maxHealth: character.maxHealth + 10,
-  health: character.maxHealth + 10,
-  xp: 0,
-});
-
-const getRandomInt = (min: number, max: number): number =>
-  Math.floor(Math.random() * (max - min + 1)) + min;
-
-const describeMonster = (monster: Monster): string => {
-  switch (monster.kind) {
-    case 'melee':
-      return `Melee Monster: Damage = ${monster.damage}, Armor = ${monster.armor}`;
-    case 'ranged':
-      return `Ranged Monster: Damage = ${monster.damage}, Range = ${monster.range}`;
-    default:
-      const _exhaustiveCheck: never = monster;
-      return _exhaustiveCheck;
-  }
-};
+import { Character } from '../types/character';
+import { Monster } from '../types/monster';
+import { describeMonster, fightMonster } from '../logic/monster';
+import { updateCharacter, healCharacter } from '../logic/character';
 
 const CharacterCreator: React.FC = () => {
   const [character, setCharacter] = useState<Character>({
@@ -81,56 +17,31 @@ const CharacterCreator: React.FC = () => {
     xp: 0,
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setCharacter((prevCharacter) =>
-      updateCharacter(prevCharacter, {
-        [name]: name === 'name' ? value : parseInt(value, 10),
-      })
-    );
-  };
-
-  const healCharacter = () => {
-    setCharacter((prev) =>
-      updateCharacter(prev, {
-        health: Math.min(prev.health + 15, prev.maxHealth),
-      })
-    );
-  };
-
-  const fightMonster = (monster: Monster) => {
-    setCharacter((prev) => {
-      let damageTaken = monster.damage;
-
-      if (monster.kind === 'melee') {
-        damageTaken = Math.max(0, monster.damage - prev.strength);
-      } else if (monster.kind === 'ranged') {
-        damageTaken = Math.max(0, monster.damage - prev.agility / 2);
-      }
-
-      const xpReward = getRandomInt(30, 70);
-      const updatedXp = prev.xp + xpReward;
-      const xpThreshold = 100;
-
-      if (updatedXp >= xpThreshold) {
-        return levelUp({ ...prev, xp: updatedXp - xpThreshold });
-      }
-
-      return updateCharacter(prev, {
-        health: Math.max(prev.health - damageTaken, 0),
-        xp: updatedXp,
-        inventory: [
-          ...prev.inventory,
-          { name: `${monster.kind} Monster Trophy`, type: ItemType.Trophy },
-        ],
-      });
-    });
-  };
-
   const monsters: Monster[] = [
     { kind: 'melee', damage: 10, armor: 5 },
     { kind: 'ranged', damage: 8, range: 15 },
   ];
+
+  const handleStateUpdate = (
+    updater: Partial<Character> | ((current: Character) => Partial<Character>)
+  ) => {
+    setCharacter((prev) => updateCharacter(prev, updater));
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    handleStateUpdate(() => ({
+      [name]: name === 'name' ? value : parseInt(value, 10),
+    }));
+  };
+
+  const handleFightMonster = (monster: Monster) => {
+    handleStateUpdate((current) => fightMonster(current, monster));
+  };
+
+  const handleHealCharacter = () => {
+    handleStateUpdate((current) => healCharacter(current, 15));
+  };
 
   return (
     <div>
@@ -190,14 +101,14 @@ const CharacterCreator: React.FC = () => {
           )}
         </ul>
       </div>
-      <button onClick={healCharacter}>Heal</button>
+      <button onClick={handleHealCharacter}>Heal</button>
       <div>
         <h2>Monsters</h2>
         <ul>
           {monsters.map((monster, index) => (
             <li key={index}>
               {describeMonster(monster)}{' '}
-              <button onClick={() => fightMonster(monster)}>Fight</button>
+              <button onClick={() => handleFightMonster(monster)}>Fight</button>
             </li>
           ))}
         </ul>
