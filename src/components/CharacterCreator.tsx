@@ -1,9 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import {
+  Form,
+  Input,
+  InputNumber,
+  Button,
+  Card,
+  List,
+  Typography,
+  Progress,
+  Space,
+} from "antd";
 
-import { Character } from '../types/character';
-import { Monster } from '../types/monster';
-import { describeMonster, fightMonster } from '../logic/monster';
-import { updateCharacter, healCharacter } from '../logic/character';
+import { Character } from "../types/character";
+import { Monster } from "../types/monster";
+import { describeMonster, fightMonster } from "../logic/monster";
+import { updateCharacter, healCharacter } from "../logic/character";
+
+const { Title } = Typography;
 
 /**
  * The main component for creating and managing a character.
@@ -15,7 +28,7 @@ const CharacterCreator: React.FC = () => {
    * The state representing the character.
    */
   const [character, setCharacter] = useState<Character>({
-    name: '',
+    name: "",
     strength: 10,
     agility: 10,
     health: 100,
@@ -29,8 +42,8 @@ const CharacterCreator: React.FC = () => {
    * A list of monsters that the character can fight.
    */
   const monsters: Monster[] = [
-    { kind: 'melee', damage: 10, armor: 5 },
-    { kind: 'ranged', damage: 8, range: 15 },
+    { kind: "melee", damage: 10, armor: 5 },
+    { kind: "ranged", damage: 8, range: 15 },
   ];
 
   /**
