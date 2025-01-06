@@ -2,9 +2,9 @@
 
 This was an experiment using ChatGPT to teach a programming toolchain and workflow. On the whole, the experience was quite positive.
 
-Even this README summary was written primarily by ChatGPT.
-
 This work was done in a ChatGPT [session](https://chatgpt.com/c/677418e0-9dd4-8009-a606-bb418a45d77b) on January 5, 2025. Unfortunately, I cannot share the session because OpenAI does not yet support sharing of session with user-uploaded user images. I am happy to share the session in any reasonably easy ad-hoc way, or once OpenAI makes it easier.
+
+This README summary was written primarily by ChatGPT. It also created a summary [TUTORIAL](TUTORIAL.md) of the session.
 
 ## Project Overview
 
@@ -144,6 +144,7 @@ This project is a TypeScript-based React application built using the **Vite** bu
 
 1. Ensure you have **Node.js** (version 16 or higher) installed.
 2. Install dependencies using:
+
    ```bash
    npm install
    ```
