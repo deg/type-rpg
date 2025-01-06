@@ -14,10 +14,10 @@ Welcome to the **TypeScript RPG Character Creator** project tutorial! This guide
 2. [Setting Up the Development Environment](#setting-up-the-development-environment)
 3. [Building the Application](#building-the-application)
 4. [Exploring TypeScript Features](#exploring-typescript-features)
-5. [Enhancing the UI](#enhancing-the-ui)
-6. [Using Ant Design](#using-ant-design)
-7. [Styling with Styled-Components](#styling-with-styled-components)
-8. [Generating Documentation with TypeDoc](#generating-documentation-with-typedoc)
+5. [Enhancing the UI with Ant Design](#enhancing-the-ui)
+6. [Styling with Styled-Components](#styling-with-styled-components)
+7. [Generating Documentation with TypeDoc](#generating-documentation-with-typedoc)
+8. [Configuring CI with GitHub Pages](#configuring-ci)
 9. [Additional Tips and Tricks](#additional-tips-and-tricks)
 
 ---
@@ -258,6 +258,20 @@ npx typedoc
 ```
 
 ---
+
+## Configuring-CI
+
+---
+
+To automate the deployment of both the app and its TypeScript documentation, we set up a GitHub Actions workflow (`deploy.yml`). This CI/CD pipeline ensures that every push to the `main` branch builds and deploys the project to GitHub Pages.
+
+### Key Features
+
+- The app is built using `npm run build`, and the output is deployed to the root of the `gh-pages` branch.
+- Documentation is generated using `npm run docs` and is deployed to the `/docs` subdirectory.
+- The app (`dist/`) and docs (`docs/`) are merged, ensuring both are deployed in a single step.
+- The workflow is triggered by every push to the `main` branch.
+- `peaceiris/actions-gh-pages` is used to manage the `gh-pages` branch.
 
 ## Additional Tips and Tricks
 

@@ -10,6 +10,16 @@ This README summary was written primarily by ChatGPT. It also created a summary 
 
 This project is a TypeScript-based React application built using the **Vite** bundler. It is designed as a learning project to explore the TypeScript language, modern React best practices, advanced tooling, and UI frameworks. The primary feature of the application is a **character creation tool** for a hypothetical RPG game, which demonstrates state management, dynamic updates, and modular design.
 
+## Live view
+
+### Application
+
+The live application is available at: [Type RPG](https://deg.github.io/type-rpg).
+
+### Documentation
+
+Browse the project documentation: [Project Docs](https://deg.github.io/type-rpg/docs).
+
 ## What We Accomplished
 
 ### **1. Development Environment Setup**
@@ -29,6 +39,11 @@ This project is a TypeScript-based React application built using the **Vite** bu
   - Added support for **styled-components** with Babel configuration.
   - Integrated **Ant Design (AntD)** as the primary UI library for reusable components.
   - Configured `typedoc` to generate documentation for the TypeScript codebase.
+  - Implemented a GitHub Actions CI workflow to deploy the app and documentation to GitHub Pages:
+    - The app is hosted at the repository's GitHub Pages root (`/`).
+    - TypeScript documentation is hosted in a subdirectory (`/docs`).
+    - The workflow ensures every `main` branch commit triggers automatic deployment.
+    - Used `peaceiris/actions-gh-pages` to manage the deployment process with an orphaned `gh-pages` branch.
 
 ---
 
@@ -120,18 +135,13 @@ This project is a TypeScript-based React application built using the **Vite** bu
 - Add unit tests for critical functions (`updateCharacter`, `fightMonster`, etc.) using Jest or Vitest.
 - Add integration and end-to-end tests using Cypress or Playwright.
 
-### **4. Documentation and CI/CD**
-
-- Automate documentation generation with `typedoc` in a CI/CD pipeline.
-- Deploy generated documentation to GitHub Pages or a similar hosting service.
-
-### **5. Backend Integration**
+### **4. Backend Integration**
 
 - Add a backend using Node.js and Express to persist character data.
 - Use TypeScript on both frontend and backend for shared types.
 - Implement RESTful or GraphQL APIs.
 
-### **6. Additional UI Improvements**
+### **5. Additional UI Improvements**
 
 - Use modals or advanced components from Ant Design for better user interactions (e.g., confirmation dialogs).
 - Add animations for transitions between character states (e.g., leveling up or taking damage).
