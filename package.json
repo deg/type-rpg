@@ -2,6 +2,8 @@
   "name": "type-rpg",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://deg.github.io/type-rpg",
+  "author": "David Goldfarb <deg@degel.com>",
   "license": "MIT",
   "type": "module",
   "scripts": {
