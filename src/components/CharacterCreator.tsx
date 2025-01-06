@@ -47,9 +47,7 @@ const CharacterCreator: React.FC = () => {
   ];
 
   /**
-   * Updates the character state using a static or dynamic updater.
-   *
-   * @param updater - A partial update object or a function generating updates.
+   * A list of monsters that the character can fight.
    */
   const handleStateUpdate = (
     updater: Partial<Character> | ((current: Character) => Partial<Character>)
@@ -62,11 +60,8 @@ const CharacterCreator: React.FC = () => {
    *
    * @param e - The input change event.
    */
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    handleStateUpdate(() => ({
-      [name]: name === 'name' ? value : parseInt(value, 10),
-    }));
+  const handleInputChange = (field: string, value: string | number) => {
+    handleStateUpdate({ [field]: value });
   };
 
   /**
@@ -86,76 +81,72 @@ const CharacterCreator: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Create Your Character</h1>
-      <form>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={character.name}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        <label>
-          Strength:
-          <input
-            type="number"
-            name="strength"
-            value={character.strength}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        <label>
-          Agility:
-          <input
-            type="number"
-            name="agility"
-            value={character.agility}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-      </form>
-      <div>
-        <h2>Your Character</h2>
-        <p>Name: {character.name}</p>
-        <p>Level: {character.level}</p>
-        <p>XP: {character.xp} / 100</p>
-        <p>Strength: {character.strength}</p>
-        <p>Agility: {character.agility}</p>
+    <Space direction="vertical" size="large" style={{ width: "100%" }}>
+      <Title>Create Your Character</Title>
+      <Card>
+        <Form layout="vertical">
+          <Form.Item label="Name">
+            <Input
+              value={character.name}
+              onChange={(e) => handleInputChange("name", e.target.value)}
+            />
+          </Form.Item>
+          <Form.Item label="Strength">
+            <InputNumber
+              min={1}
+              value={character.strength}
+              onChange={(value) => handleInputChange("strength", value!)}
+            />
+          </Form.Item>
+          <Form.Item label="Agility">
+            <InputNumber
+              min={1}
+              value={character.agility}
+              onChange={(value) => handleInputChange("agility", value!)}
+            />
+          </Form.Item>
+        </Form>
+      </Card>
+
+      <Card>
+        <Title level={3}>Your Character</Title>
         <p>
-          Health: {character.health} / {character.maxHealth}
+          <strong>Name:</strong> {character.name}
         </p>
-        <p>Inventory:</p>
-        <ul>
-          {character.inventory.length > 0 ? (
-            character.inventory.map((item, index) => (
-              <li key={index}>
-                {item.name} ({item.type})
-              </li>
-            ))
-          ) : (
-            <p>Empty</p>
+        <p>
+          <strong>Level:</strong> {character.level}
+        </p>
+        <Progress
+          percent={(character.xp / 100) * 100}
+          status="active"
+          showInfo
+          format={(percent) => `XP: ${Math.round(percent!)}%`}
+        />
+        <p>
+          <strong>Health:</strong> {character.health} / {character.maxHealth}
+        </p>
+        <Button type="primary" onClick={handleHealCharacter}>
+          Heal Character
+        </Button>
+      </Card>
+
+      <Card>
+        <Title level={3}>Monsters</Title>
+        <List
+          dataSource={monsters}
+          renderItem={(monster) => (
+            <List.Item>
+              <Space>
+                {describeMonster(monster)}
+                <Button type="default" onClick={() => handleFightMonster(monster)}>
+                  Fight
+                </Button>
+              </Space>
+            </List.Item>
           )}
-        </ul>
-      </div>
-      <button onClick={handleHealCharacter}>Heal</button>
-      <div>
-        <h2>Monsters</h2>
-        <ul>
-          {monsters.map((monster, index) => (
-            <li key={index}>
-              {describeMonster(monster)}{' '}
-              <button onClick={() => handleFightMonster(monster)}>Fight</button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+        />
+      </Card>
+    </Space>
   );
 };
 
