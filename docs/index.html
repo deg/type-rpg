@@ -1,0 +1,196 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="."><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>type-rpg - v0.0.0</title><meta name="description" content="Documentation for type-rpg"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><div class="table-cell" id="tsd-search"><div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div><div class="field"><div id="tsd-toolbar-links"></div></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">type-rpg - v0.0.0</a></div><div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h1>type-rpg - v0.0.0</h1></div><div class="tsd-panel tsd-typography"><a id="typescript-rpg-character-creator" class="tsd-anchor"></a><h1 class="tsd-anchor-link">TypeScript RPG Character Creator<a href="#typescript-rpg-character-creator" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1><p>This was an experiment using ChatGPT to teach a programming toolchain and workflow. On the whole, the experience was quite positive.</p>
+<p>This work was done in a ChatGPT <a href="https://chatgpt.com/c/677418e0-9dd4-8009-a606-bb418a45d77b">session</a> on January 5, 2025. Unfortunately, I cannot share the session because OpenAI does not yet support sharing of session with user-uploaded user images. I am happy to share the session in any reasonably easy ad-hoc way, or once OpenAI makes it easier.</p>
+<p>This README summary was written primarily by ChatGPT. It also created a summary <a href="media/TUTORIAL.md">TUTORIAL</a> of the session.</p>
+<a id="project-overview" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Project Overview<a href="#project-overview" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p>This project is a TypeScript-based React application built using the <strong>Vite</strong> bundler. It is designed as a learning project to explore the TypeScript language, modern React best practices, advanced tooling, and UI frameworks. The primary feature of the application is a <strong>character creation tool</strong> for a hypothetical RPG game, which demonstrates state management, dynamic updates, and modular design.</p>
+<a id="live-view" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Live view<a href="#live-view" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="application" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Application<a href="#application" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p>The live application is available at: <a href="https://deg.github.io/type-rpg">Type RPG</a>.</p>
+<a id="documentation" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Documentation<a href="#documentation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p>Browse the project documentation: <a href="https://deg.github.io/type-rpg/docs">Project Docs</a>.</p>
+<a id="what-we-accomplished" class="tsd-anchor"></a><h2 class="tsd-anchor-link">What We Accomplished<a href="#what-we-accomplished" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="1-development-environment-setup" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>1. Development Environment Setup</strong><a href="#1-development-environment-setup" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li>
+<p><strong>Vite Configuration</strong>:</p>
+<ul>
+<li>Set up a modern Vite-based React application with TypeScript.</li>
+<li>Optimized the Vite configuration for fast development and clean builds.</li>
+</ul>
+</li>
+<li>
+<p><strong>VSCode Configuration</strong>:</p>
+<ul>
+<li>Integrated TypeScript, ESLint, and Prettier for a seamless developer experience.</li>
+<li>Customized inlay hints and editor settings to reduce noise and improve productivity.</li>
+<li>Set up workspace-specific and user-specific settings for streamlined code editing.</li>
+</ul>
+</li>
+<li>
+<p><strong>Tooling</strong>:</p>
+<ul>
+<li>Added support for <strong>styled-components</strong> with Babel configuration.</li>
+<li>Integrated <strong>Ant Design (AntD)</strong> as the primary UI library for reusable components.</li>
+<li>Configured <code>typedoc</code> to generate documentation for the TypeScript codebase.</li>
+<li>Implemented a GitHub Actions CI workflow to deploy the app and documentation to GitHub Pages:
+<ul>
+<li>The app is hosted at the repository's GitHub Pages root (<code>/</code>).</li>
+<li>TypeScript documentation is hosted in a subdirectory (<code>/docs</code>).</li>
+<li>The workflow ensures every <code>main</code> branch commit triggers automatic deployment.</li>
+<li>Used <code>peaceiris/actions-gh-pages</code> to manage the deployment process with an orphaned <code>gh-pages</code> branch.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<a id="2-application-features" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>2. Application Features</strong><a href="#2-application-features" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><a id="core-functionality" class="tsd-anchor"></a><h4 class="tsd-anchor-link"><strong>Core Functionality</strong><a href="#core-functionality" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><ul>
+<li>
+<p><strong>Character Creation</strong>:</p>
+<ul>
+<li>Allows the user to create a character with customizable attributes such as <code>name</code>, <code>strength</code>, and <code>agility</code>.</li>
+<li>Tracks character health, level, experience points (XP), and inventory.</li>
+</ul>
+</li>
+<li>
+<p><strong>Monster Interaction</strong>:</p>
+<ul>
+<li>Includes a list of monsters with unique stats.</li>
+<li>Enables fighting monsters, dynamically updating character stats based on the outcome.</li>
+</ul>
+</li>
+<li>
+<p><strong>Healing Mechanic</strong>:</p>
+<ul>
+<li>Allows the user to heal the character using a dedicated button.</li>
+</ul>
+</li>
+</ul>
+<a id="ui-enhancements" class="tsd-anchor"></a><h4 class="tsd-anchor-link"><strong>UI Enhancements</strong><a href="#ui-enhancements" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><ul>
+<li>Replaced plain HTML forms and buttons with <strong>Ant Design components</strong>:
+<ul>
+<li>Used <code>Form</code>, <code>Input</code>, <code>InputNumber</code>, <code>Card</code>, <code>Button</code>, and <code>Progress</code> components.</li>
+<li>Enhanced layout with <code>Space</code> and <code>List</code> components.</li>
+</ul>
+</li>
+<li>Added polished styling with <strong>styled-components</strong> for custom components where needed.</li>
+</ul>
+<a id="state-management" class="tsd-anchor"></a><h4 class="tsd-anchor-link"><strong>State Management</strong><a href="#state-management" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><ul>
+<li>Used React’s <code>useState</code> for managing the character and application state.</li>
+<li>Implemented reusable logic functions such as:
+<ul>
+<li><code>updateCharacter</code>: Dynamically updates character properties.</li>
+<li><code>fightMonster</code>: Updates character stats after battling a monster.</li>
+<li><code>healCharacter</code>: Heals the character by a specified amount.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<a id="3-typescript-exploration" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>3. TypeScript Exploration</strong><a href="#3-typescript-exploration" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><a id="key-language-features-used" class="tsd-anchor"></a><h4 class="tsd-anchor-link"><strong>Key Language Features Used</strong><a href="#key-language-features-used" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><ul>
+<li><strong>Type Annotations</strong>:
+<ul>
+<li>Strongly typed props, state, and function parameters/returns.</li>
+</ul>
+</li>
+<li><strong>Utility Types</strong>:
+<ul>
+<li>Used <code>Partial</code> for dynamic updates.</li>
+</ul>
+</li>
+<li><strong>Custom Types</strong>:
+<ul>
+<li>Defined reusable types/interfaces for <code>Character</code> and <code>Monster</code> objects.</li>
+</ul>
+</li>
+<li><strong>Advanced Features</strong>:
+<ul>
+<li>Leveraged conditional types, mapped types, and template literal types.</li>
+</ul>
+</li>
+<li><strong>Nullish Coalescing and Optional Chaining</strong>:
+<ul>
+<li>Safely handled optional values throughout the application.</li>
+</ul>
+</li>
+</ul>
+<a id="tooling" class="tsd-anchor"></a><h4 class="tsd-anchor-link"><strong>Tooling</strong><a href="#tooling" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><ul>
+<li>Configured TypeScript <code>strict</code> mode for maximum type safety.</li>
+<li>Added <code>typedoc</code> to generate browsable documentation for the codebase.</li>
+<li>Used ESLint and Prettier to enforce coding standards and formatting.</li>
+</ul>
+<hr>
+<a id="remaining-work-and-future-enhancements" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Remaining Work and Future Enhancements<a href="#remaining-work-and-future-enhancements" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="1-advanced-features" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>1. Advanced Features</strong><a href="#1-advanced-features" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li>
+<p><strong>Global State Management</strong>:</p>
+<ul>
+<li>Migrate character state to a global state manager such as Context API or Redux.</li>
+<li>Add middleware or side effects to handle asynchronous actions (e.g., data fetching).</li>
+</ul>
+</li>
+<li>
+<p><strong>Monster Generation</strong>:</p>
+<ul>
+<li>Dynamically generate monsters with procedural stats instead of a hardcoded list.</li>
+</ul>
+</li>
+<li>
+<p><strong>Inventory Management</strong>:</p>
+<ul>
+<li>Add functionality to pick up and use items from the inventory.</li>
+<li>Implement drag-and-drop or other advanced interactions for managing inventory.</li>
+</ul>
+</li>
+</ul>
+<a id="2-styling-improvements" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>2. Styling Improvements</strong><a href="#2-styling-improvements" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li>
+<p><strong>Dark Mode</strong>:</p>
+<ul>
+<li>Add a toggle for light and dark themes using styled-components or Ant Design’s theming support.</li>
+</ul>
+</li>
+<li>
+<p><strong>Responsive Design</strong>:</p>
+<ul>
+<li>Improve mobile responsiveness using Ant Design’s Grid system.</li>
+</ul>
+</li>
+</ul>
+<a id="3-testing" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>3. Testing</strong><a href="#3-testing" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li>Add unit tests for critical functions (<code>updateCharacter</code>, <code>fightMonster</code>, etc.) using Jest or Vitest.</li>
+<li>Add integration and end-to-end tests using Cypress or Playwright.</li>
+</ul>
+<a id="4-backend-integration" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>4. Backend Integration</strong><a href="#4-backend-integration" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li>Add a backend using Node.js and Express to persist character data.</li>
+<li>Use TypeScript on both frontend and backend for shared types.</li>
+<li>Implement RESTful or GraphQL APIs.</li>
+</ul>
+<a id="5-additional-ui-improvements" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>5. Additional UI Improvements</strong><a href="#5-additional-ui-improvements" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li>Use modals or advanced components from Ant Design for better user interactions (e.g., confirmation dialogs).</li>
+<li>Add animations for transitions between character states (e.g., leveling up or taking damage).</li>
+</ul>
+<hr>
+<a id="how-to-run-the-project" class="tsd-anchor"></a><h2 class="tsd-anchor-link">How to Run the Project<a href="#how-to-run-the-project" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="prerequisites" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Prerequisites<a href="#prerequisites" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ol>
+<li>
+<p>Ensure you have <strong>Node.js</strong> (version 16 or higher) installed.</p>
+</li>
+<li>
+<p>Install dependencies using:</p>
+<pre><code class="bash"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">install</span>
+</code><button type="button">Copy</button></pre>
+
+</li>
+</ol>
+<a id="start-the-development-server" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Start the Development Server<a href="#start-the-development-server" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="bash"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">dev</span>
+</code><button type="button">Copy</button></pre>
+
+<a id="build-the-application" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Build the Application<a href="#build-the-application" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="bash"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">build</span>
+</code><button type="button">Copy</button></pre>
+
+<a id="run-typedoc-to-generate-documentation" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Run TypeDoc to Generate Documentation<a href="#run-typedoc-to-generate-documentation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="bash"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">docs</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Generated documentation will be available in the <code>docs/</code> directory.</p>
+<hr>
+<a id="notes-for-future-development" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Notes for Future Development<a href="#notes-for-future-development" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><ul>
+<li>This project serves as both a TypeScript learning tool and a boilerplate for future applications.</li>
+<li>All configuration files, including <code>tsconfig.json</code>, <code>vite.config.ts</code>, and <code>typedoc.json</code>, have been optimized for simplicity and performance.</li>
+<li>Modular design principles have been followed to ensure scalability.</li>
+</ul>
+<p>For questions or future enhancements, refer to this README or consult with future ChatGPT sessions for guidance.</p>
+<a id="license" class="tsd-anchor"></a><h2 class="tsd-anchor-link">License<a href="#license" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p>This project is licensed under the MIT License. See the <a href="media/LICENSE">LICENSE</a> file for details.</p>
+<p>Contact <a href="mailto:deg@degel.com">David Goldfarb</a> for more details or any questions.</p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#typescript-rpg-character-creator"><span>Type<wbr/>Script RPG <wbr/>Character <wbr/>Creator</span></a><ul><li><a href="#project-overview"><span>Project <wbr/>Overview</span></a></li><li><a href="#live-view"><span>Live view</span></a></li><li><ul><li><a href="#application"><span>Application</span></a></li><li><a href="#documentation"><span>Documentation</span></a></li></ul></li><li><a href="#what-we-accomplished"><span>What <wbr/>We <wbr/>Accomplished</span></a></li><li><ul><li><a href="#1-development-environment-setup"><span>1. <wbr/>Development <wbr/>Environment <wbr/>Setup</span></a></li><li><a href="#2-application-features"><span>2. <wbr/>Application <wbr/>Features</span></a></li><li><ul><li><a href="#core-functionality"><span>Core <wbr/>Functionality</span></a></li><li><a href="#ui-enhancements"><span>UI <wbr/>Enhancements</span></a></li><li><a href="#state-management"><span>State <wbr/>Management</span></a></li></ul></li><li><a href="#3-typescript-exploration"><span>3. <wbr/>Type<wbr/>Script <wbr/>Exploration</span></a></li><li><ul><li><a href="#key-language-features-used"><span>Key <wbr/>Language <wbr/>Features <wbr/>Used</span></a></li><li><a href="#tooling"><span>Tooling</span></a></li></ul></li></ul></li><li><a href="#remaining-work-and-future-enhancements"><span>Remaining <wbr/>Work and <wbr/>Future <wbr/>Enhancements</span></a></li><li><ul><li><a href="#1-advanced-features"><span>1. <wbr/>Advanced <wbr/>Features</span></a></li><li><a href="#2-styling-improvements"><span>2. <wbr/>Styling <wbr/>Improvements</span></a></li><li><a href="#3-testing"><span>3. <wbr/>Testing</span></a></li><li><a href="#4-backend-integration"><span>4. <wbr/>Backend <wbr/>Integration</span></a></li><li><a href="#5-additional-ui-improvements"><span>5. <wbr/>Additional UI <wbr/>Improvements</span></a></li></ul></li><li><a href="#how-to-run-the-project"><span>How to <wbr/>Run the <wbr/>Project</span></a></li><li><ul><li><a href="#prerequisites"><span>Prerequisites</span></a></li><li><a href="#start-the-development-server"><span>Start the <wbr/>Development <wbr/>Server</span></a></li><li><a href="#build-the-application"><span>Build the <wbr/>Application</span></a></li><li><a href="#run-typedoc-to-generate-documentation"><span>Run <wbr/>Type<wbr/>Doc to <wbr/>Generate <wbr/>Documentation</span></a></li></ul></li><li><a href="#notes-for-future-development"><span>Notes for <wbr/>Future <wbr/>Development</span></a></li><li><a href="#license"><span>License</span></a></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="modules.html">type-rpg - v0.0.0</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer></footer><div class="overlay"></div></body></html>
