@@ -1,0 +1,68 @@
+{
+  // Formatting: Use Prettier as the default formatter and enable format-on-save
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.fontSize": 13,
+
+  // Enable TypeScript validation and inlay hints for better type insights
+  "typescript.validate.enable": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+
+  "workbench.colorCustomizations": {
+    "editorInlayHint.foreground": "#CCDDDD", // Fainter inlay hints text
+    "editorInlayHint.background": "#00000000" // Transparent background for inlay hints
+  },
+
+  // ESLint settings: Ensure ESLint runs smoothly and autofixes issues
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always" // Automatically fix ESLint issues on save
+  },
+
+  // Prettier configuration: Ensure compatibility with ESLint
+  "prettier.useTabs": false,
+  "prettier.singleQuote": false,
+  "prettier.semi": true,
+  "prettier.trailingComma": "es5",
+  "prettier.bracketSpacing": true,
+  "prettier.arrowParens": "always",
+  "prettier.printWidth": 96,
+
+  // React-specific settings: Enable React-specific validation and linting
+  "react.validate.propTypes": false,
+  "react.validate.jsxClosingBracketLocation": true,
+
+  // Enable IntelliSense for file paths and auto-imports
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  "path-intellisense.autoSlashAfterDirectory": true,
+
+  // Performance optimizations for large projects
+  "files.autoSave": "onFocusChange",
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/dist": true
+  },
+
+  // Styled-Components Support
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+
+  // Ensure modern ECMAScript features are supported
+  "javascript.validate.enable": true,
+  "javascript.implicitProjectConfig.ecmaVersion": "latest",
+  "typescript.preferences.includeCompletionsForModuleExports": true,
+
+  // Optional: Enable/Disable GitLens Annotations
+  "gitlens.codeLens.enabled": true, // Suppress inline GitLens hints if they're noisy
+  "gitlens.hovers.enabled": true
+}
